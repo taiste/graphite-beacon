@@ -1,6 +1,7 @@
 {% if level == 'normal' %}
-{{ reactor.options.get('prefix') }} {{level.upper() }} <{{ alert.name }}>{% if target %} `{{target}}`{% end %} is back to normal.
-{% else %}
-{{ reactor.options.get('prefix') }} {{ level.upper() }} <{{ alert.name }}>{% if target %} `{{target}}`{% end %} failed. Current value: {{ alert.convert(value) }}
-{% if target %}<{{ alert.get_graph_url(target) }}|View Graph>{% end %}
+{% if target %} `{{target}}`{% end %} is back to normal. 
+<https://stats.valopilkkupalvelu.fi/dashboard/#Valopilkku|View Dashboard>
+{% else %} 
+{{ reactor.options.get('prefix') }} *{{ level.upper() }}!* {{ alert.name }}{% if target %} Failing metric: `{{target}}`.{% end %}  Current value: _{{ alert.convert(value) }}_
+{% if target %}<https://stats.valopilkkupalvelu.fi/dashboard/#Valopilkku|View Dashboard>{% end %}
 {% end %}
