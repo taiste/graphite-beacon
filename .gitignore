@@ -65,3 +65,5 @@ target/
 /.env
 /.ropeproject
 /.tox
+
+config.json
