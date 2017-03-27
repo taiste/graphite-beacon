@@ -1,7 +1,7 @@
 {% if level == 'normal' %}
 {% if target %} `{{target}}`{% end %} is back to normal. 
-<https://stats.valopilkkupalvelu.fi/dashboard/#Valopilkku|View Dashboard>
 {% else %} 
+
 {{ reactor.options.get('prefix') }} *{{ level.upper() }}!* {{ alert.name }}{% if target %} Failing metric: `{{target}}`.{% end %}  Current value: _{{ alert.convert(value) }}_
-{% if target %}<https://stats.valopilkkupalvelu.fi/dashboard/#Valopilkku|View Dashboard>{% end %}
 {% end %}
+{% if target %}<https://stats.valopilkkupalvelu.fi/dashboard/#Valopilkku|Dashboard> | <https://clients.taiste.fi/valopilkku/ooda/graphite-beacon|Documentation>{% end %}
